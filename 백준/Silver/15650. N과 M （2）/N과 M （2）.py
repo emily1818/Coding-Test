@@ -15,7 +15,7 @@ def dfs(x):
             dfs(i + 1)
             res.pop()
 dfs(1)
-
+#push 확인
 n,m = list(map(int,input().split()))
 s = []
 def dfs(start):
