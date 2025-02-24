@@ -34,3 +34,11 @@ print(len(not_heard_seen))
 #     print(name)
 
 print("".join(not_heard_seen), end = "")
+
+###########################
+#set
+# 순서가 없고 중복을 허용하지 않는 컬렉션 
+#1. 중복 제거 
+#2. 빠른 멤버십 검사
+#3. 수학적 집합 연산 : 합집합, 교집합, 차집합 등 집합 연산 지원
+# A|B, A&B A-B
