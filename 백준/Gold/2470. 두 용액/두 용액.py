@@ -1,28 +1,34 @@
-n = int(input())
-arr = list(map(int, input().split(' ')))
+
+
+## 2470
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+arr = list(map(int, input().split()))
+
 arr.sort()
 
-left = 0
-right = n-1
 
-answer = abs(arr[left] + arr[right])
-final = [arr[left], arr[right]]
+start = 0 
+end = N-1
+final = [start, end]
+temp = abs(arr[start] + arr[end])
 
 
-while left < right:
-    left_val = arr[left]
-    right_val = arr[right]
 
-    sum = left_val + right_val
-  
-    if abs(sum) < answer:
-        answer = abs(sum)
-        final = [left_val, right_val]
-        if answer == 0:
-          break
-    if sum < 0:
-        left += 1
-    else:
-        right -= 1
+while start < end :
+    result = arr[start] + arr[end]
 
-print(final[0], final[1])
+    if abs(result) < temp :
+        temp = abs(result)
+        final = [start, end]
+        if temp == 0  :
+            break 
+    if result < 0 : 
+        start += 1
+    else :
+        end -=1 
+
+    
+print(arr[final[0]], arr[final[1]])
