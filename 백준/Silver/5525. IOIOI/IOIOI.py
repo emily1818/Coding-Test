@@ -1,26 +1,17 @@
-import sys
-input = sys.stdin.readline
+N = int(input())
+M = int(input())
+S = input()
+answer, i, count = 0, 0, 0
 
-n = int(input())
-m = int(input())
-s = str(input()).strip()
+while i < (M - 1):
+    if S[i:i+3] == 'IOI':
+        i += 2
+        count += 1
+        if count == N:
+            answer += 1
+            count -= 1
+    else:
+        i += 1
+        count = 0
 
-n_len = 2*n +1
-arr_n = ""
-cnt  =0 
-
-for i in range(1, n_len+1) :
-    if i % 2 == 1 :
-        arr_n += "I"
-
-    else :
-        arr_n  += "O"
-
-
-for start in range(m-n_len +1 ) :
-    arr_s = s[start:start+n_len]
-    if arr_n == arr_s :
-        cnt+=1 
-
-
-print(cnt)
+print(answer)
