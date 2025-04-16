@@ -1,36 +1,25 @@
 import sys
+
 input = sys.stdin.readline
 
-N, M = map(int, input().split())
+n, m = map(int, input().split())
 
-not_heard = []
-not_seen = []
-cnt = 0 
-not_heard_seen = []
+not_hear = set()
+not_see_hear = []
 
-for i in range(N) :
-    name = input()
-    # print(name)
-    not_heard.append(name)
+# 듣도 못한 사람들을 집합으로 저장
+for _ in range(n):
+    not_hear.add(input().strip())
 
-for i in range(M) : 
-    name = input()
-    not_seen.append(name)
+# 보지도 못한 사람 중, 듣도 못한 사람 판별
+for _ in range(m):
+    not_see = input().strip()
+    if not_see in not_hear:  # ✅ O(1) 탐색
+        not_see_hear.append(not_see)
 
-#각 arr를 set으로 풀어주고 &연산자를 통해 교집합 부분만 빼서 list로 만들고 출력
-not_heard_seen = list(set(not_heard) & set(not_seen))
-#시간 초과 남..;;
-# for name in not_heard : 
-#     if name in not_seen :
-#         cnt +=1 
-#         not_heard_seen.append(name)
+# 사전순 정렬 후 출력
+not_see_hear.sort()
 
-not_heard_seen.sort()
-
-# print(not_heard[0])
-print(len(not_heard_seen))
-
-# for name in not_heard_seen :
-#     print(name)
-
-print("".join(not_heard_seen), end = "")
+print(len(not_see_hear))
+for name in not_see_hear:
+    print(name)
